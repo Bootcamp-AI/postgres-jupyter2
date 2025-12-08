@@ -1,0 +1,13 @@
+{
+  "name": "Python & PostgreSQL Dev Container",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app", // El servicio principal donde correrá Jupyter
+  "workspaceFolder": "/workspace",
+  "forwardPorts": [5432], // Importante: reenvía el puerto 5432 de PostgreSQL
+  "extensions": [
+    "ms-python.python",
+    "ms-toolsai.jupyter"
+    // Otras extensiones útiles como 'ms-azuretools.vscode-docker'
+  ],
+  "postCreateCommand": "pip install -r requirements.txt"
+}

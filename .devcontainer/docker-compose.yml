@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  app:
+    # Construcción de la imagen para la aplicación/Jupyter
+    build: 
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity # Mantiene el contenedor ejecutándose
+    environment:
+      # Variables de entorno para que tu código las use
+      DB_NAME: mydatabase
+      DB_USER: postgres
+      DB_PASSWORD: mysecretpassword
+      DB_HOST: db # El nombre del servicio de la BD en docker-compose
+      DB_PORT: 5432
+  
+  db:
+    image: postgres:latest
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432" # Mapeo del puerto de PostgreSQL
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      
+volumes:
+  postgres-data:
