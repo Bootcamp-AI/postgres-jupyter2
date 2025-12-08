@@ -12,24 +12,13 @@
   },
   // Opcional: Instalar librerías de Python automáticamente
   "postCreateCommand": "pip install pandas sqlalchemy psycopg2-binary ipykernel",
-  "customizations": {
-		"vscode": {
-			"settings": {
-				"workbench.editorAssociations": {
-					"*.ipynb": "jupyter-notebook"
-				},
-				"notebook.compactView": false
-			},
-			"extensions": [
-				"ms-python.python",
-				"ms-toolsai.jupyter",
-				"MS-vsliveshare.vsliveshare"
+
+	"customizations": {
+		"codespaces": {
+			"openFiles": [
+			  "README.md"
 			]
-		},
-        "codespaces": {
-            "openFiles": [
-            "excercice.ipynb"
-            ]
-        }
-  }
+		}
+	}
+
 }
