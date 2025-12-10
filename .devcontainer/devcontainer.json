@@ -1,6 +1,6 @@
 {
   "name": "Mi Entorno de Datos",
-  "image": "mcr.microsoft.com/devcontainers/python:3.10",
+  "image": "mcr.microsoft.com/devcontainers/python:0-3.11-bullseye",
   "features": {
     // Instalamos PostgreSQL
     "ghcr.io/itsmechlark/features/postgresql:1": {
@@ -11,7 +11,7 @@
     }
   },
   // Opcional: Instalar librerías de Python automáticamente
-  "postCreateCommand": "pip install pandas sqlalchemy psycopg2-binary ipykernel",
+  "postCreateCommand": "pip install psycopg2-binary",
 
 	"customizations": {
 		"codespaces": {
